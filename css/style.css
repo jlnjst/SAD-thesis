@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+.wrapper{
+    background-color:#fcfcf2;
+    position: absolute;
+    top: 60%;
+    left: 85%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    box-shadow: 0 0 8px rgba(0, 0, 0,  0.1);
+}
+.wrapper .header-title{
+background-color: #4DA6FF;
+font-weight: bold;
+padding: 10px 5px;
+}
+.wrapper .form, .student-form{
+    padding: 20px;
+}
+
+.wrapper .header-title .minimize-btn{
+    display: block;
+    float: right;
+    margin-right: 3px;
+    cursor: pointer;
+}
+
+
+.wrapper .student-form li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+label{
+    display: block;
+}
+.wrapper .student-form .form-field input{
+    width: 100%;
+}
+.wrapper .bot-btn{
+    text-decoration: none;
+    color: white;
+    display: block;
+    background-color: #4DA6FF;
+    text-align: center;
+    padding: 8px 0;
+    margin: 40px 20px;
+}
