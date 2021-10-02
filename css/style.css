@@ -4,6 +4,8 @@
     font-family: Poppins, sans-serif;
 }
 .wrapper{
+    display:none;
+
     background-color:#fcfcf2;
     position: absolute;
     top: 60%;
@@ -12,6 +14,7 @@
     width: 400px;
     box-shadow: 0 0 8px rgba(0, 0, 0,  0.1);
 }
+/*FORM*/
 .wrapper .header-title{
 background-color: #4DA6FF;
 font-weight: bold;
@@ -27,7 +30,6 @@ padding: 10px 5px;
     margin-right: 3px;
     cursor: pointer;
 }
-
 
 .wrapper .student-form li{
     list-style: none;
@@ -47,4 +49,25 @@ label{
     text-align: center;
     padding: 8px 0;
     margin: 40px 20px;
+}
+
+/*MESSAGE ICON*/
+input[type="checkbox"]{
+    display: none;
+}
+.bot-chat .fa-comment-alt{
+    color:#4DA6FF;
+    /*need adjustment on the width and height of the message icon*/
+}
+.bot-chat .show-btn{
+    position:absolute;
+    bottom: 5%;
+    right: 5%;
+}
+
+#show:checked ~ .wrapper{
+    display:block;
+}
+.show-btn,.minimize-btn:hover{
+    cursor: pointer;
 }
