@@ -26,30 +26,40 @@
                     <p>Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to DFCAMCLP-IT's
                         <a href="#">Terms of Service</a>
                         and 
-                        <a href="#">Privacy Policy</a>.</p>
-            
+                        <a href="#">Privacy Policy</a>
+                        .
+                    </p>
                 </div>
-                <!--start of spacing 1 tab: DON't FOrget-->
-            <form class ="student-form">
-                <ul>
-                    <li class = "form-field">
-                        <label for="firstname">First Name<span>*</span></label>
+
+                <form class ="input-form" id="inquirerForm">
+                    <ul>
+                        <li class = "form-field">
+                            <label for="firstname">First Name<span>*</span></label>
                         
-                        <input type="text" id="firstname"required>
-                    </li>
+                            <input type="text" id="firstname"required>
+                        </li>
                     
-                    <li class = "form-field">
-                        <label for="email">Email<span>*</span></label>
+                        <li class = "form-field">
+                            <label for="email">Email<span>*</span></label>
                         
-                        <input type="text" id="email"required>
-                    </li>
-                    <li>
-                        <a href="#">Student of DFCAMCLP-IT? Click here</a>
-                    </li>
-                </ul>
-            </form>
-            <a href ="#" class="bot-btn">I accept and Start Chat</a>
-        </div>
+                            <input type="text" id="email"required>
+                        </li>
+                            <a href="#"id="btnStudent">Student of DFCAMCLP-IT? Click here</a>
+                        </li>
+                    </ul>
+                </form>
+
+                <form class ="input-form" id="studentForm">
+                    <ul>
+                        <li class = "form-field">
+                            <label for="studentId">Student Id<span>*</span></label>
+                        
+                            <input type="text" id="studentId"required>
+                        </li>
+                    </ul>
+                </form>
+                <a href ="#" class="bot-btn">I accept and Start Chat</a>
+            </div>
         
         </div>
         <!--<div class ="wrapper">
@@ -91,7 +101,17 @@
             </div>
         </div>
     -->
-   
+    <script>
+        var inquirerForm = document.getElementById("inquirerForm");
+        var studentForm = document.getElementById("studentForm");
+
+        var btnStudent = document.getElementById("btnStudent");
+        btnStudent.onclick = function(){
+            inquirerForm.style.left="-320px";
+            studentForm.style.left="20px";
+            
+        }
+    </script>
         
 
     </body>
