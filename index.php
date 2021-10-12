@@ -1,3 +1,38 @@
+<?php
+
+include_once("connection/connection.php");
+
+$con = connection();
+/*TEST 1: cif the database is connected. RESULTS: true
+if($con->connect_error){
+    echo $con->connect_error;
+}
+else{
+    echo "Connected";
+}*/
+
+$sql = "SELECT * FROM student_list";
+$students = $con ->query($sql) or die($con->error);
+$row = $students->fetch_assoc();
+
+/* TEST 2: IF THE DATABASE ARE DISPLAYING RESULTS: TRUE
+ do{
+    
+    echo $row['first_name'];
+}while($row = $students->fetch_assoc());
+*/
+
+if(isset($_POST['submit'])){
+
+   $fname = $_POST['firstname'];
+   $mail =  $_POST['email'];
+
+   $sql = "INSERT INTO `student_list`(`first_name`, `email`) VALUES ('$fname','$mail')";
+   $con->query($sql) or die ($con->error);
+
+}
+?>
+<!--start of html-->
 <!DOCTYPE html>
    <html>
        <head>
@@ -5,6 +40,9 @@
         <link rel ="stylesheet" href="css/style.css">
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/0c9ae9856a.js" crossorigin="anonymous"></script>
+
+        <!--CSS and JS links -->
+        <link rel= "stylesheet" href = "css/style.css">
         </head>
        <body>
         
@@ -31,22 +69,21 @@
                     </p>
                 </div>
 
-                <form class ="input-form" id="inquirerForm">
+                <form class ="input-form" id="inquirerForm" action="" method="post">
                     <ul>
                         <li class = "form-field">
                             <label for="firstname">First Name<span>*</span></label>
-                        
-                            <input type="text" id="firstname"required>
+                            <input type="text" name="firstname" id="firstname"required>
                         </li>
                     
                         <li class = "form-field">
                             <label for="email">Email<span>*</span></label>
-                        
-                            <input type="text" id="email"required>
+                            <input type="email" name="email" id="email"required>
                         </li>
                             <a href="#"id="btnStudent">Student of DFCAMCLP-IT? Click here</a>
                         </li>
                     </ul>
+                    <input type="submit" name ="submit" class="bot-btn" value="I accept and start chat">
                 </form>
 
                 <form class ="input-form" id="studentForm">
@@ -57,8 +94,12 @@
                             <input type="text" id="studentId"required>
                         </li>
                     </ul>
+                    
                 </form>
-                <a href ="#" class="bot-btn">I accept and Start Chat</a>
+                <!--<a href ="#" class="bot-btn">I accept and Start Chat</a>-->
+                <!--<input type="submit" name ="submit" class="bot-btn" value="I accept and start chat">-->
+                <!--<button type="submit" name="submit" class="bot-btn">I accept and start chat</button>-->
+                
             </div>
         
         </div>
@@ -116,3 +157,5 @@
 
     </body>
     </html>
+
+
