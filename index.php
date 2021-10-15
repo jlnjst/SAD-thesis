@@ -51,7 +51,7 @@ if(isset($_POST['submit'])){
     </head>
     <body>
 
-            <!--inquirers-->
+        <!--inquirers-->
         <div class="login">
             <input type="checkbox" id="show">
                 <label for="show" class="show-btn fas fa-comment-alt">

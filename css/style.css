@@ -32,7 +32,7 @@ h3{
 p{
     margin-bottom: 30px;
 }
-.bot-chat .container form{
+.login .container form{
     width: 280px;
     position: absolute;
     top: 70px;
@@ -49,7 +49,7 @@ form input{
     outline: none;
 }
 /*button*/
-.bot-chat .container .header .minimize-btn{
+.login .container .header .minimize-btn{
     display: block;
     float: right;
     padding-right: 5px;
@@ -94,11 +94,11 @@ left: 450px;
 input[type="checkbox"]{
     display: none;
 }
-.bot-chat .fa-comment-alt{
+.login .fa-comment-alt{
     color:#4DA6FF;
     /*need adjustment on the width and height of the message icon*/
 }
-.bot-chat .show-btn{
+.login .show-btn{
     position:absolute;
     bottom: 5%;
     right: 6%;
