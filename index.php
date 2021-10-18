@@ -56,6 +56,7 @@ if(isset($_POST['submit'])){
             <input type="checkbox" id="show">
                 <label for="show" class="show-btn fas fa-comment-alt">
                 </label>
+
             <div class="container">
                 <div class="header">
                     <h3>DFCAMCLP-IT CHATBOT
@@ -97,21 +98,17 @@ if(isset($_POST['submit'])){
                 </form>
             </div>
         </div>
-            <script type="text/javascript">
-                var Form1 = document.getElementById("form1");
-                var Form2 = document.getElementById("form2");
+            
 
-                var studentBtn = document.getElementById("intoStudentForm");
-
-                studentBtn.onclick = function(){
-                    Form1.style.left="-450px";
-                    Form2.style.left="20px";
-                }
-        </script>
-
-        <!--BOTCHAT
+        <!--BOTCHAT-->
         <div class="wrapper">
-            <div class="header-title">DFCAMCLP-IT ChatBot</div>
+            <div class="header">
+                    <h3>DFCAMCLP-IT CHATBOT
+                        <label for="show" class="minimize-btn">
+                            <i class="fas fa-times"></i>
+                        </label>
+                    </h3>
+                </div>
                 <div class ="form">
                     <div class="bot-inbox inbox">   
                         <div class="icon">
@@ -148,7 +145,18 @@ if(isset($_POST['submit'])){
                     <button>Send</button>
                 </div>
         </div>
-            -->
+        
+        <script type="text/javascript">
+                var Form1 = document.getElementById("form1");
+                var Form2 = document.getElementById("form2");
+
+                var studentBtn = document.getElementById("intoStudentForm");
+
+                studentBtn.onclick = function(){
+                    Form1.style.left="-450px";
+                    Form2.style.left="20px";
+                }
+        </script>
     </body>
 </html>
 
