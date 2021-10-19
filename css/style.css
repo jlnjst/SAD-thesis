@@ -111,16 +111,17 @@ input[type="checkbox"]{
     cursor: pointer;
 }
 
-/*BOTCHAT
+/*BOTCHAT*/
+
 .wrapper{
     display: none;
-    width: 330px;
+ /*   width: 330px;
     height: 550px;
     margin: 4% auto;
     background: rgb(233, 233, 233);
-    border-radius: 5px;
-    position: relative;
+    border-radius: 5px;*/
 }
+/*
 .wrapper .header .minimize-btn{
     display: block;
     float: right;
@@ -129,5 +130,4 @@ input[type="checkbox"]{
 }
 #show:checked ~ .wrapper{
     display:block;
-}
-*/
+}*/

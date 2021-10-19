@@ -3,8 +3,12 @@
 /*This is for admin and test - copy
 eto na gagamitin dzai*/
 
+if(!isset($_SESSION)){
+    session_start();
+}
 include_once("connection/connection.php");
 $con = connection();
+
 
 /*TEST 1: cif the database is connected. RESULTS: true
 if($con->connect_error){
@@ -14,7 +18,7 @@ else{
     echo "Connected";
 }*/
 
-$sql = "SELECT * FROM student_list ORDER BY id ASC";
+$sql = "SELECT * FROM inquirer_list ORDER BY id ASC";
 $students = $con ->query($sql) or die($con->error);
 $row = $students->fetch_assoc();
 
@@ -23,16 +27,30 @@ $row = $students->fetch_assoc();
     echo $row['first_name'];
 }while($row = $students->fetch_assoc()); 
 */
-
+/*FOR INQUIRER FORM*/
 if(isset($_POST['submit'])){
 
    $fname = $_POST['firstname'];
    $mail =  $_POST['email'];
 
-   $sql = "INSERT INTO `student_list`(`first_name`, `email`) VALUES ('$fname','$mail')";
+   $sql = "INSERT INTO `inquirer_list`(`name`, `email`) VALUES ('$fname','$mail')";
    $con->query($sql) or die ($con->error);
 
-   echo header("Location:index.php");
+  // echo header("Location:index.php");
+}
+
+/*FOR STUDENTS FORM*/
+
+/*TEST 3: if the session on line6-8 are working: true
+if(isset($_POST['submit2'])){
+    echo "welcome";
+}
+*/
+if(isset($_POST['submit2'])){
+    $stud_id = $_POST['studentid'];
+
+    echo $sql2 = "SELECT * FROM student_list WHERE student_id='$stud_id'";
+
 }
 ?>
 <!--start of html-->
@@ -66,7 +84,7 @@ if(isset($_POST['submit'])){
                     </h3>
                 </div>
                 <form id="form1" action="" method="post">
-                    <p>Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to Edukasyon's
+                    <p>Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to DFCAMCLP-IT's
                         <a href="#">Terms of Service</a>
                          and 
                          <a href="#">Privacy Policy</a>
@@ -84,7 +102,7 @@ if(isset($_POST['submit'])){
                 </form>
                 <!--students-->
                 <form id ="form2" action="" method="post">
-                    <p>Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to Edukasyon's
+                    <p>Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to DFCAMCLP-IT's
                         <a href="#">Terms of Service</a>
                          and 
                          <a href="#">Privacy Policy</a>
@@ -93,7 +111,7 @@ if(isset($_POST['submit'])){
                     <label for ="studentid">Student ID</label>
                     <input type="textarea" name ="studentid"id="studentid">
                     <div id="btn-submit2">
-                        <input class="button" type="submit" name ="submit" value="I accept and start chat">
+                        <input class="button" type="submit" name ="submit2" value="I accept and start chat">
                     </div>
                 </form>
             </div>
