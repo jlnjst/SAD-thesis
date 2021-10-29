@@ -6,6 +6,7 @@ eto na gagamitin dzai*/
 if(!isset($_SESSION)){
     session_start();
 }
+
 include_once("connection/connection.php");
 $con = connection();
 
@@ -19,14 +20,16 @@ else{
 }*/
 
 $sql = "SELECT * FROM inquirer_list ORDER BY id ASC";
-$students = $con ->query($sql) or die($con->error);
-$row = $students->fetch_assoc();
+$inquirer = $con ->query($sql) or die($con->error);
+$row = $inquirer->fetch_assoc();
 
-/* TEST 2: IF THE DATABASE ARE DISPLAYING RESULTS: TRUEdo{
+/* TEST 2: IF THE DATABASE ARE DISPLAYING RESULTS: TRUE
+do{
     
     echo $row['first_name'];
 }while($row = $students->fetch_assoc()); 
 */
+
 /*FOR INQUIRER FORM*/
 if(isset($_POST['submit'])){
 
@@ -49,9 +52,21 @@ if(isset($_POST['submit2'])){
 if(isset($_POST['submit2'])){
     $stud_id = $_POST['studentid'];
 
-    echo $sql2 = "SELECT * FROM student_list WHERE student_id='$stud_id'";
+    $sql2 = "SELECT * FROM student_list WHERE student_id='$stud_id'";
 
+    $students = $con->query($sql2) or die($con->error);
+    $row2 = $students->fetch_assoc();
+    $total= $students->num_rows;
+    
+    if($total > 0){
+        
+    $_SESSION['Student_id']=$row2['student_id'];
+    }else{
+        echo "<script>alert('error')</script>";
+    }
 }
+
+
 ?>
 <!--start of html-->
 <!DOCTYPE htmL>
@@ -97,7 +112,7 @@ if(isset($_POST['submit2'])){
                     <input type="email" name ="email" id="email">
                     <input type="button" id="intoStudentForm" value="I am a student of DFCAMCLP-IT">
                     <div id="btn-submit">
-                        <input class="button" type="submit" name ="submit" value="I accept and start chat">
+                        <input class="button" id="submit2" type="submit" name ="submit" value="I accept and start chat">
                     </div>
                 </form>
                 <!--students-->
@@ -111,70 +126,63 @@ if(isset($_POST['submit2'])){
                     <label for ="studentid">Student ID</label>
                     <input type="textarea" name ="studentid"id="studentid">
                     <div id="btn-submit2">
-                        <input class="button" type="submit" name ="submit2" value="I accept and start chat">
+                        <input class="button"  id="submit2" onclick="hideShowDiv()" type="submit" name ="submit2" value="I accept and start chat">
                     </div>
                 </form>
             </div>
+
         </div>
             
 
         <!--BOTCHAT-->
-        <div class="wrapper">
+        <div class="wrapper"id="botWrapper">
             <div class="header">
-                    <h3>DFCAMCLP-IT CHATBOT
-                        <label for="show" class="minimize-btn">
-                            <i class="fas fa-times"></i>
-                        </label>
-                    </h3>
-                </div>
-                <div class ="form">
-                    <div class="bot-inbox inbox">   
-                        <div class="icon">
-                            <i class ="user"></i>
-                        </div>
-                        <div class = "msg-header">
-                            <p>Thanks for visiting DFCAMCLP-IT! Please feel free to leave us a message and let our chatbot help your inquiries with suggested answers.</p>
-                        </div>
+                <h3>DFCAMCLP-IT CHATBOT
+                    <label for="show" class="minimize-btn">
+                        <i class="fas fa-times"></i>
+                    </label>
+                </h3>
+            </div>
+            
+            <div class ="form">
+                <div class="bot-inbox inbox">   
+                    <div class="icon">
+                        <i class ="user"></i>
                     </div>
-
-                    <div class="user-inbox inbox">
-                        <div class = "msg-header">
-                            <p>Hi, I am a sender</p>
-                        </div>
-                    </div>
-
-                    <div class="bot-inbox inbox">   
-                        <div class="icon">
-                            <i class ="user"></i>
-                        </div>
-                        <div class = "msg-header">
-                            <p>Hi! How can we help?</p>
-                        </div>
-                    </div>
-
-                    <div class="user-inbox inbox">
-                        <div class = "msg-header">
-                            <p>Hi, I am a sender</p>
-                        </div>
+                    <div class = "msg-header">
+                        <p>Thanks for visiting DFCAMCLP-IT! Please feel free to leave us a message and let our chatbot help your inquiries with suggested answers.</p>
                     </div>
                 </div>
-                <div class="type-field">
-                    <input type="text" placeholder="Reply here..." required>
-                    <button>Send</button>
+
+                <div class="user-inbox inbox">
+                    <div class = "msg-header">
+                        <p>Hi, I am a sender</p>
+                    </div>
                 </div>
+
+                <div class="bot-inbox inbox">   
+                    <div class="icon">
+                        <i class ="user"></i>
+                    </div>
+                    <div class = "msg-header">
+                        <p>Hi! How can we help?</p>
+                    </div>
+                </div>
+
+                <div class="user-inbox inbox">
+                    <div class = "msg-header">
+                        <p>Hi, I am a sender</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-field">
+                <input type="text" placeholder="Reply here..." required>
+                <button>Send</button>
+            </div>
         </div>
         
-        <script type="text/javascript">
-                var Form1 = document.getElementById("form1");
-                var Form2 = document.getElementById("form2");
-
-                var studentBtn = document.getElementById("intoStudentForm");
-
-                studentBtn.onclick = function(){
-                    Form1.style.left="-450px";
-                    Form2.style.left="20px";
-                }
-        </script>
+        <script src="js/index.js"></script>
     </body>
 </html>
 
