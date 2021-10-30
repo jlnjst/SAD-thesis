@@ -48,7 +48,6 @@ if(isset($_POST['submit'])){
 if(isset($_POST['submit2'])){
     echo "welcome";
 }
-*/
 if(isset($_POST['submit2'])){
     $stud_id = $_POST['studentid'];
 
@@ -65,6 +64,7 @@ if(isset($_POST['submit2'])){
         echo "<script>alert('error')</script>";
     }
 }
+*/
 
 
 ?>
