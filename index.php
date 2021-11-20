@@ -85,6 +85,59 @@ if(isset($_POST['submit2'])){
     <body>
 
         <!--inquirers-->
+        <div class="headerWrap">
+            <div class="header">
+                <div class="logo">
+                    <a href="/">
+                        <img src = "" title="Dr. Filemon C. Aguilar Memorial College Las Pinas">
+                    </a>
+                </div>
+                <!--Main Menu-->
+                <div class="menuWrap">
+                    <div class="mainMenu">
+                        <div class="PageBlock__Menu">
+                            <ul>
+                                <li>
+                                    <a>
+                                        <span class="title">About</span>
+                                    </a>
+                                    <ul>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Mission & History</span>
+                                            </a>
+                                        </li>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Head of School</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="title">Academics</span>
+                                    </a>
+                                    <ul>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Information Systems</span>
+                                            </a>
+                                        </li>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Computer Engineering</span>
+                                            </a>
+                                        </li>
+                                        
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="login">
             <input type="checkbox" id="show">
                 <label for="show" class="show-btn fas fa-comment-alt">
@@ -144,42 +197,7 @@ if(isset($_POST['submit2'])){
                 </h3>
             </div>
             
-            <div class ="form">
-                <div class="bot-inbox inbox">   
-                    <div class="icon">
-                        <i class ="user"></i>
-                    </div>
-                    <div class = "msg-header">
-                        <p>Thanks for visiting DFCAMCLP-IT! Please feel free to leave us a message and let our chatbot help your inquiries with suggested answers.</p>
-                    </div>
-                </div>
-
-                <div class="user-inbox inbox">
-                    <div class = "msg-header">
-                        <p>Hi, I am a sender</p>
-                    </div>
-                </div>
-
-                <div class="bot-inbox inbox">   
-                    <div class="icon">
-                        <i class ="user"></i>
-                    </div>
-                    <div class = "msg-header">
-                        <p>Hi! How can we help?</p>
-                    </div>
-                </div>
-
-                <div class="user-inbox inbox">
-                    <div class = "msg-header">
-                        <p>Hi, I am a sender</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="type-field">
-                <input type="text" placeholder="Reply here..." required>
-                <button>Send</button>
-            </div>
+            
         </div>
         
         <script src="js/index.js"></script>
