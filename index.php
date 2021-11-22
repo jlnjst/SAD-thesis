@@ -10,6 +10,7 @@
         <script src="https://kit.fontawesome.com/0c9ae9856a.js" crossorigin="anonymous"></script>
         <!--CSS and JS links -->
         <link rel= "stylesheet" href = "css/style.css">
+        <link rel= "stylesheet" href = "css/skin.css">
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         
     </head>
