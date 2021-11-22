@@ -1,6 +1,6 @@
 
 
-<?php
+/*<?php
 //Get Heroku ClearDB connection information
 function connection(){
 $cleardb_url = parse_url(getenv("CLEARDB_DATABASE_URL"));
@@ -41,4 +41,4 @@ function test_input($logindata){
 }
 
 
-?>
+?>*/
