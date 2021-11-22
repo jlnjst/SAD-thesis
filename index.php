@@ -1,73 +1,3 @@
-<?php
-
-/*This is for admin and test - copy
-eto na gagamitin dzai*/
-
-if(!isset($_SESSION)){
-    session_start();
-}
-
-include_once("connection/connection.php");
-$con = connection();
-
-
-/*TEST 1: cif the database is connected. RESULTS: true
-if($con->connect_error){
-    echo $con->connect_error;
-}
-else{
-    echo "Connected";
-}*/
-
-$sql = "SELECT * FROM inquirer_list ORDER BY id ASC";
-$inquirer = $con ->query($sql) or die($con->error);
-$row = $inquirer->fetch_assoc();
-
-/* TEST 2: IF THE DATABASE ARE DISPLAYING RESULTS: TRUE
-do{
-    
-    echo $row['first_name'];
-}while($row = $students->fetch_assoc()); 
-*/
-
-/*FOR INQUIRER FORM*/
-if(isset($_POST['submit'])){
-
-   $fname = $_POST['firstname'];
-   $mail =  $_POST['email'];
-
-   $sql = "INSERT INTO `inquirer_list`(`name`, `email`) VALUES ('$fname','$mail')";
-   $con->query($sql) or die ($con->error);
-
-  // echo header("Location:index.php");
-}
-
-/*FOR STUDENTS FORM*/
-
-/*TEST 3: if the session on line6-8 are working: true
-if(isset($_POST['submit2'])){
-    echo "welcome";
-}
-if(isset($_POST['submit2'])){
-    $stud_id = $_POST['studentid'];
-
-    $sql2 = "SELECT * FROM student_list WHERE student_id='$stud_id'";
-
-    $students = $con->query($sql2) or die($con->error);
-    $row2 = $students->fetch_assoc();
-    $total= $students->num_rows;
-    
-    if($total > 0){
-        
-    $_SESSION['Student_id']=$row2['student_id'];
-    }else{
-        echo "<script>alert('error')</script>";
-    }
-}
-*/
-
-
-?>
 <!--start of html-->
 <!DOCTYPE htmL>
 <html lang ="en">
@@ -151,7 +81,7 @@ if(isset($_POST['submit2'])){
                         </label>
                     </h3>
                 </div>
-                <form id="form1" action="" method="post">
+                <form id="form1" action="connection/connection.php" method="POST">
                     <p>Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to DFCAMCLP-IT's
                         <a href="#">Terms of Service</a>
                          and 

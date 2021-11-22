@@ -13,12 +13,30 @@ $query_builder = TRUE;
 // Connect to DB
 $con = mysqli_connect($cleardb_server, $cleardb_username, $cleardb_password, $cleardb_db);
 
-if($con->connect_error){
-    echo $con->connect_error;
+if(!$con){
+    die("can't reconnect".mysqli_connect_error());
 }
 else{
-    return $con;
+    $fname=test_input($_POST['firstname']);
+        $email=test_input($_POST['email']);
+
+        $sql= "INSERT INTO inquirer_list(firstname,email)VALUES('$fname','$email')";
+
+        
+        if(mysqli_query($con,$sql)){
+            echo "show";
+        }
+        else{
+            echo "fail to insert";
+        }
+        mysqli_close($con);
 }
+}
+function test_input($logindata){
+    $logindata=trim($logindata);
+    $logindata=stripslashes($logindata);
+    $logindata=htmlspecialchars($logindata);
+    return $logindata;
 }
 
 ?>
