@@ -18,7 +18,7 @@ if(!$con){
 }
 else{
     $fname=test_input($_POST['firstname']);
-        $email=test_input($_POST['email']);
+    $email=test_input($_POST['email']);
 
         $sql= "INSERT INTO inquirer_list(firstname,email)VALUES('$fname','$email')";
 

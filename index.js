@@ -1,16 +1,16 @@
-var Form1 = document.getElementById("form1");
-var Form2 = document.getElementById("form2");
+document.addEventListener("DOMContentLoaded", () => {
+    const inquirerForm = document.querySelector("#inquirer");
+    const studentForm = document.querySelector("#student");
 
-var studentBtn = document.getElementById("intoStudentForm");
+    document.querySelector("#linkStudent").addEventListener("click", e => {
+        e.preventDefault();
+        inquirerForm.classList.add("form__hidden");
+        studentForm.classList.remove("form__hidden");
+    });
 
-studentBtn.onclick = function(){
-    Form1.style.left="-450px";
-    Form2.style.left="20px";
-}
-
-
-function hideShowDiv(){
-    let div=document.getElementById("botWrapper");
-    div.style.visibility="visible";
-  
-  }
+    document.querySelector("#linkInquirer").addEventListener("click", e => {
+        e.preventDefault();
+        inquirerForm.classList.remove("form__hidden");
+        studentForm.classList.add("form__hidden");
+    });
+});
