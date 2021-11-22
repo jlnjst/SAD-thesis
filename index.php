@@ -84,17 +84,29 @@
             
 
         <!--BOTCHAT-->
-        <div class="wrapper"id="botWrapper">
-            <div class="header">
-                <h3>DFCAMCLP-IT CHATBOT
-                    <label for="show" class="minimize-btn">
-                        <i class="fas fa-times"></i>
-                    </label>
-                </h3>
+        <div class="chatBot">
+            <input type="checkbox" id="show__chatBot">
+                <div class="wrapper form__hidden" id="wrapper">
+                    <div class="title">DFCAMCLP-IT CHATBOT
+                        <label for="show__chatBot" class="minimize__btn">
+                            <i class="fas fa-times"></i>
+                        </label>
+                    </div>
+                    <div class="form form-Chat__Wrap">
+                        <div class="bot-inbox inbox">
+                            <div class="msg-header">
+                                <p>Hello there, how can I help you?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="typing-field">
+                        <div class="input-data">
+                            <input id="data" type="text" placeholder="Type something here.." required>
+                            <button id="send-btn">Send</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-            
-            
-        </div>
         
         <script src="./main.js"></script>
         <script>
