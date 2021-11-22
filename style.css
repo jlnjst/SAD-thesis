@@ -1,0 +1,137 @@
+*{
+    
+    margin: 0;
+    padding: 0;
+    font-family: Poppins, sans-serif;
+}
+/*INQUIRERS*/
+.container{
+    display: none;
+    width: 330px;
+    height: 550px;
+    margin: 4% auto;
+    background: rgb(233, 233, 233);
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+}
+.header{
+    width: 330px;
+    height: 40px;
+    margin: 0 auto;
+    display: flex;
+    background: #40B0DF;
+    position: relative;
+}
+h3{
+    width: 100%;
+    margin-bottom:40px;
+    padding: 10px 10px 0 10px;
+    color: #fff;
+    font-size: small;
+}
+p{
+    margin-bottom: 30px;
+}
+.login .container form{
+    width: 280px;
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    transition: 1s;
+}
+
+form input{
+    width: 100%;
+    padding: 10px 5px;
+    margin: 5px 0;
+    border: 0;
+    border-bottom: 1px solid #999;
+    outline: none;
+}
+/*button*/
+.login .container .header .minimize-btn{
+    display: block;
+    float: right;
+    padding-right: 5px;
+    cursor: pointer;
+}
+#btn-submit{
+    width: 100%;
+    margin: 5px auto;
+}
+form .button{
+    background: #40B0DF;
+    cursor: pointer;
+}
+#intoStudentForm{
+    margin: 2px 1px;
+    border: none;
+    background-color: rgb(233, 233, 233);
+    cursor: pointer;
+    text-decoration: underline;
+}
+/*second form*/
+#form2{
+left: 450px;
+}
+
+#form2 p{
+    padding-bottom: 50px;
+}
+#btn-submit2{
+    margin: 35px auto;
+}
+
+/*hover*/
+#intoStudentForm:hover{
+    color: #0000A3;
+}
+.button:hover{
+    transition: 0.5s;
+    background: #FFD53D;
+}
+/*message-icon*/
+input[type="checkbox"]{
+    display: none;
+}
+.login .fa-comment-alt{
+    color:#4DA6FF;
+    /*need adjustment on the width and height of the message icon*/
+}
+.login .show-btn{
+    position:absolute;
+    bottom: 5%;
+    right: 6%;
+}
+#show:checked ~ .container{
+    display:block;
+}
+.show-btn,.minimize-btn:hover{
+    cursor: pointer;
+}
+
+/*BOTCHAT
+
+.wrapper{
+    width: 330px;
+    height: 550px;
+    margin: 4% auto;
+    position: relative;
+    background: rgb(233, 233, 233);
+    border-radius: 5px;
+}
+
+#botWrapper{
+    visibility: hidden;
+}
+/*
+.wrapper .header .minimize-btn{
+    display: block;
+    float: right;
+    padding-right: 5px;
+    cursor: pointer;
+}
+#show:checked ~ .wrapper{
+    display:block;
+}*/
