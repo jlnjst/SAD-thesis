@@ -14,6 +14,123 @@ html,body{
     
 }
 
+
+/*WEBSITE*/
+.header__wrap .header{
+    display: block;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 5px 0;
+    height: 45px;
+    display: table;
+    width: 100%;
+}
+.header__wrap .logo{
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 10px;
+    padding: 20px 10px 20px 0;
+}
+.header__wrap .menuWrap {
+        display: table-cell;
+        vertical-align: middle;
+        margin: 0 12px;
+        position: relative;
+        z-index: 25;
+}
+
+.header__wrap .mainMenu ul li:after {
+    content: "/";
+    color: var(--primary-color-dark);
+}
+.header__wrap .mainMenu ul li{
+    font-size: 10pt;
+}
+.header__wrap .mainMenu ul li:last-child:after {
+    content: "";
+}
+.header .mainMenu ul li a, .header__wrap .mainMenu ul li { 
+    line-height: 41pt;
+}
+.header__wrap .mainMenu ul li a {
+    padding: 0 27px;
+    color: var(--primary-color-dark);
+    font-weight: 600;
+    font-size: 14pt;
+}
+
+.header__wrap .mainMenu ul li li a {
+    padding: 0 10px;
+    color: #fff;
+}
+
+.header__wrap .mainMenu ul li:hover > a {
+    color: #fff;
+}
+
+.header__wrap .mainMenu ul li ul li a, .header__wrap .mainMenu ul li ul li {
+    line-height: 15pt;
+    font-size: 10pt;
+}
+
+.menuWrap{
+    position: relative; z-index: 25;
+}
+.mainMenu ul li a, .mainMenu ul li {
+    float: left;
+    padding: 20px 0;
+}
+.mainMenu ul li {
+    position: relative;
+}
+.mainMenu ul li a {
+    padding: 8px 12px;
+}
+.mainMenu ul li ul {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    margin: 0;
+    z-index: 199 !important;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+.mainMenu ul li ul:last-child {
+    padding-bottom: 5px;
+}
+.mainMenu ul li ul li {
+    padding: 5px 10px;
+    width: 300px;
+    height: 25x;
+    line-height: 25px;
+    border: none;
+}
+.mainMenu ul li ul li:first-child {
+    border: none;
+}
+.mainMenu ul li ul li:after { clear: both; content: " "; display: block; height: 0; visibility: hidden; }
+.mainMenu ul li:hover > ul {
+    display: block;
+    transition: 1s;
+}
+.mainMenu ul li ul li, .mainMenu ul li ul li a {
+    float: none;
+    color: #ffffff;
+}
+.mainMenu ul li ul li a {
+    display: block; padding: 0 10px;
+}
+/* Subsub Menu */
+.mainMenu ul li ul li ul {
+    display: none;
+    background: #000;
+    padding-top: 5px;
+    padding-bottom: 5px; }
+.mainMenu ul li ul li:hover ul { left: 100%; top: 0; }
+.mainMenu ul li ul li ul li { padding: 5px 20px }
+
 /*LOGIN*/
 #login, .chatBot{
     float: right;

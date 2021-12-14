@@ -15,8 +15,99 @@
         
     </head>
     <body>
+        <div class="header__wrap">
+            <div class="header">
+                <div class="logo">
+                    <a href="/">
+                        <img src = "favicon.ico" title="Dr. Filemon C. Aguilar Memorial College Las Pinas">
+                    </a>
+                </div>
+                <!--Main Menu-->
+                <div class="menuWrap">
+                    <div class="mainMenu">
+                            <ul>
+                                <li>
+                                    <a>
+                                        <span class="title">About</span>
+                                    </a>
+                                    <ul>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Mission & History</span>
+                                            </a>
+                                        </li>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Head of School</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a>
+                                        <span class="title">Academics</span>
+                                    </a>
+                                    <ul>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Information Systems</span>
+                                            </a>
+                                        </li>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Computer Engineering</span>
+                                            </a>
+                                        </li>
+                                        <li class="no__childs">
+                                            <a href="">
+                                                <span class="title">Organizations</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="">
+                                        <span class="title">Contact Us</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-        <!--inquirers-->
+        <!-- Messenger Chat Plugin Code -->
+    <div id="fb-root"></div>
+
+<!-- Your Chat Plugin code -->
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+
+<script>
+  var chatbox = document.getElementById('fb-customer-chat');
+  chatbox.setAttribute("page_id", "101834847827464");
+  chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+
+<!-- Your SDK code -->
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      xfbml            : true,
+      version          : 'v12.0'
+    });
+  };
+
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+</script>
+        <!--
         <div id="login">
             <input type="checkbox" id="show__loginForm">
             <label for="show__loginForm" class="btn__icon fas fa-comment-alt">
@@ -29,7 +120,6 @@
                         </label>
                     </h3>
                 </div>
-                <!--inquirers--->
                 <form action="connection/connection.php" class= "form" id="inquirer" method="POST" onsubmit="return inquirerFormSubmit();">
                     
                     <p class ="introduction">Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to DFCAMCLP-IT's
@@ -54,7 +144,7 @@
                     
                     <button class="form__button" type="submit" name="submit" id="continueChat">I accept and start chat</button>
                 </form>
-                <!--students-->
+
                 <form class= "form form__hidden"id ="student" action="connection/connection.php" method="POST" onsubmit="return studentFormSubmit();">
                     <p class ="introduction">Before anything else... Can we get your information so we may email the answers in case we are not able to respond immediately? By filling out this form, you are agreeing to DFCAMCLP-IT's
                         <a href="#">Terms of Service</a>
@@ -83,7 +173,6 @@
         </div>
             
 
-        <!--BOTCHAT-->
         <div class="chatBot">
             <input type="checkbox" id="show__chatBot">
                 <div class="wrapper form__hidden" id="wrapper">
@@ -125,7 +214,30 @@
                 $('#container').hide();
                 return false;
             }
-        </script>
+
+            $(document).ready(function(){
+                $("#send-btn").on("click", function(){
+                    $value = $("#data").val();
+                    $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>'+ $value +'</p></div></div>';
+                    $(".form-Chat__Wrap").append($msg);
+                    $("#data").val('');
+                
+                    // start ajax code
+                    $.ajax({
+                        url: 'message.php',
+                        type: 'POST',
+                        data: 'text='+$value,
+                        success: function(result){
+                            $replay = '<div class="bot-inbox inbox"><div class="msg-header"><p>'+ result +'</p></div></div>';
+                            $(".form-Chat__Wrap").append($replay);
+                            // when chat goes down the scroll bar automatically comes to the bottom
+                            $(".form").scrollTop($(".form")[0].scrollHeight);
+                        }
+                    });
+                    var chatBotForm=document.getElementById('inquirer').reset();
+                });
+            });
+        </script>-->
     </body>
 </html>
 

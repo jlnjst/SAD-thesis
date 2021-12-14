@@ -6,7 +6,10 @@ html, body{
     --color-error: #cc3333;
     --color-success: #75E6DA;
 }
-
+/*WEBSITE*/
+.header__wrap{
+    background: var(--primary-color);
+}
 /*LOGIN*/
 .container{
     background: #fff;
